@@ -13,7 +13,7 @@ tonnen = ["Gelb (Wertstoffe)", "Braun (Bioabfall)", "Schwarz (Restmüll)", "Grü
 groupId = os.environ['SIGNAL_GROUP_ID']
 username = os.environ['SIGNAL_USERNAME']
 
-assert re.search(r"^[A-Za-z0-9=]+$", groupId).group() == groupId, "Invalid Group ID"
+assert re.search(r"^[A-Za-z0-9+=]+$", groupId).group() == groupId, "Invalid Group ID"
 assert re.search(r"^\+[0-9]+$", username).group() == username, "Invalid Username"
 
 tomorrow = datetime.now()
@@ -32,7 +32,7 @@ with open('Trashplan.csv', mode='r') as csv_file:
 
                 cmd = ("signal-cli -u \"{}\" send "
                        "-g \"{}\" "
-                       "-m \"{}: {} ist dran mit {}\";"
+                       "-m \"{}: {} ist dran mit {}\""
                        .format(username,
                                groupId,
                                rowDate.date().strftime("%d.%m. %A"), row['WG'], row['Tonne']))
