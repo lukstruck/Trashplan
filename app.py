@@ -17,7 +17,7 @@ assert re.search(r"^[A-Za-z0-9+=]+$", groupId).group() == groupId, "Invalid Grou
 assert re.search(r"^\+[0-9]+$", username).group() == username, "Invalid Username"
 
 tomorrow = datetime.now()
-# tomorrow = datetime(2020, 11, 9)
+#tomorrow = datetime(2020, 11, 9)
 tomorrow += timedelta(days=1)
 tomorrow2 = tomorrow + timedelta(days=1)
 checkdays = [tomorrow.date(), tomorrow2.date()]
@@ -32,7 +32,7 @@ with open('Trashplan.csv', mode='r') as csv_file:
 
                 cmd = ("signal-cli -u \"{}\" send "
                        "-g \"{}\" "
-                       "-m \"[MÜLLBOT]{}: {} ist dran mit {}\""
+                       "-m \"[MÜLLBOT] {}: {} ist dran mit {}\""
                        .format(username,
                                groupId,
                                rowDate.date().strftime("%d.%m. %A"), row['WG'], row['Tonne']))
