@@ -32,7 +32,7 @@ with open('Trashplan.csv', mode='r') as csv_file:
 
                 cmd = ("signal-cli -u \"{}\" send "
                        "-g \"{}\" "
-                       "-m \"{}: {} ist dran mit {}\""
+                       "-m \"[MÜLLBOT]{}: {} ist dran mit {}\""
                        .format(username,
                                groupId,
                                rowDate.date().strftime("%d.%m. %A"), row['WG'], row['Tonne']))
